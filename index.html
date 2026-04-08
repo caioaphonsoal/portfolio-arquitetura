@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caio Aphonso Almeida | Arquitetura & BIM</title>
+    
+    <!-- Fontes Google: Montserrat (Elegante/Arquitetónica) e Inter (Leitura clara) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Paleta Minimalista (Preto, Branco, Cinza) */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #767676;
+            --border-color: #e5e5e5;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Tipografia Base */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        /* Navegação Fixa e Elegante */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 20px 5%;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+        }
+
+        nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #fff;
+            transition: color 0.4s ease;
+        }
+
+        nav.scrolled .logo, nav.scrolled ul li a {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #fff;
+            transition: color 0.4s ease, opacity 0.3s ease;
+        }
+
+        /* Secção Hero (Tela Inteira) */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 5% 5%;
+        }
+
+        /* Gradiente escuro em baixo para o texto ler bem */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 800px;
+            margin-bottom: 5vh;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 200;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        /* Layout de Secções Comuns */
+        section {
+            padding: 120px 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .section-header h2 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Secção Sobre - Estilo Editorial */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-transform: none;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 600px;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        /* Grelha de Projetos - Minimalista */
+        .projects-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .project-item:nth-child(even) {
+            grid-template-columns: 3fr 7fr;
+        }
+
+        .project-item:nth-child(even) .project-image {
+            order: 2;
+        }
+        .project-item:nth-child(even) .project-details {
+            order: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 70vh;
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Estilos do Slideshow */
+        .slideshow-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            transition: transform 0.8s ease;
+        }
+
+        .project-item:hover .slideshow-container {
+            transform: scale(1.03);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Ajustes de z-index para garantir leitura dos textos */
+        .hero .slideshow-container {
+            z-index: 0;
+        }
+        .hero::after {
+            z-index: 1;
+        }
+        .hero-content {
+            z-index: 2;
+        }
+
+        .project-details {
+            padding: 20px 0;
+        }
+
+        .project-details span {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .project-details h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .project-details p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Estilos para a Lista de Certificados */
+        .certifications-list {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .certifications-list .cert-title {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certifications-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .certifications-list ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.4;
+        }
+
+        .certifications-list ul li::before {
+            content: '—';
+            margin-right: 10px;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .certifications-list ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .certifications-list ul li a:hover {
+            color: var(--text-main);
+            border-bottom-color: var(--text-main);
+            opacity: 1;
+        }
+
+        .btn-link {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 60px;
+        }
+
+        .skill-category h4 {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category ul li {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            font-family: var(--font-display);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #888;
+            letter-spacing: 1px;
+            font-family: var(--font-display);
+        }
+
+        /* Animações de Scroll (Fade In Up) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-image { height: 400px; order: -1; }
+            
+            .project-item, .project-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+            .project-item:nth-child(even) .project-image { order: 1; }
+            .project-item:nth-child(even) .project-details { order: 2; }
+            .project-image { height: 50vh; }
+            
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; /* Menu hamburger idealmente entraria aqui */ }
+            .hero-content h1 { font-size: 2.5rem; }
+            section { padding: 80px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#home" class="logo">CAIO ALMEIDA</a>
+        <ul>
+            <li><a href="#sobre">PERFIL</a></li>
+            <li><a href="#projetos">PROJETOS</a></li>
+            <li><a href="#habilidades">EXPERTISE</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="slideshow-container">
+            <div class="slide active" style="background-image: url('https://i.postimg.cc/cJHM5jXv/Gemini_Generated_Image_1h0fge1h0fge1h0f.png');"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/xdCyF7tm/Gemini_Generated_Image_70t1az70t1az70t1.png');"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/0NQdH3cK/Gemini_Generated_Image_bq5ch3bq5ch3bq5c.png');"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/jj5Qk9ZN/Gemini_Generated_Image_ieb9f6ieb9f6ieb9.png');"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/SKs7t5Df/Gemini_Generated_Image_kx7zylkx7zylkx7z.png');"></div>
+        </div>
+        <div class="hero-content reveal active">
+            <h1>Arquitetura &<br>Tecnologia BIM</h1>
+            <p>Otimização de projetos na construção civil através do planeamento urbano, design estratégico e automação computacional.</p>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <div class="section-header reveal">
+            <h2>O PROFISSIONAL</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <h3>A intersecção entre o espaço construído e a tecnologia.</h3>
+                <p>Estudante de arquitetura altamente motivado, com foco em projetos inovadores, de grande escala e gestão de obras. Uno o domínio de modelagem 3D BIM com o desenvolvimento de soluções em programação aplicada à arquitetura (plugins e apps).</p>
+                <p>Tenho forte espírito de liderança, resiliência e foco em otimização de processos. Busco agregar valor tecnológico sustentável à prática projetual.</p>
+            </div>
+            <div class="about-image reveal">
+                <div class="slideshow-container">
+                    <div class="slide active" style="background-image: url('https://i.postimg.cc/yNLnVvWJ/1.png');"></div>
+                    <div class="slide" style="background-image: url('https://i.postimg.cc/rs1rpwgb/20241028_110123.jpg');"></div>
+                    <div class="slide" style="background-image: url('https://i.postimg.cc/pdKx45d0/IMG_20221201_WA0000.jpg');"></div>
+                    <div class="slide" style="background-image: url('https://i.postimg.cc/SNYPgFRd/IMG_20221121_WA0016.jpg');"></div>
+                    <div class="slide" style="background-image: url('https://i.postimg.cc/RFbPTXzj/IMG_20220308_WA0018.jpg');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="section-header reveal">
+            <h2>PORTFÓLIO SELECIONADO</h2>
+        </div>
+        
+        <div class="projects-wrapper">
+            
+            <!-- Projeto 1: AssBIM -->
+            <article class="project-item reveal">
+                <div class="project-image">
+                    <div class="slideshow-container">
+                        <div class="slide active" style="background-image: url('https://i.postimg.cc/65m2yjhM/1772841611429.jpg');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/x1NkHvxd/1772841611310.jpg');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/65m2yjhM/1772841611429.jpg');"></div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <span>Software & Automação</span>
+                    <h3>AssBIM: Plugin para Autodesk Revit</h3>
+                    <p>Desenvolvimento integral de um plugin para Revit, desenhado para aumentar a eficiência na modelação e gestão de dados. A ferramenta foi desenvolvida em C# utilizando a framework .NET 8 e a Revit API, focando-se na automação de processos morosos do dia a dia do arquiteto.</p>
+                    <a href="#" class="btn-link">Ver detalhes técnicos</a>
+                </div>
+            </article>
+
+            <!-- Projeto 2: Arquitetura -->
+            <article class="project-item reveal">
+                <div class="project-image">
+                    <div class="slideshow-container">
+                        <div class="slide active" style="background-image: url('https://i.postimg.cc/k5pFrcpc/Gemini_Generated_Image_mctca3mctca3mctc.png');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/XqwwC07s/Gemini_Generated_Image_o6vfngo6vfngo6vf.png');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/vTWWVdZR/Gemini_Generated_Image_qftyw1qftyw1qfty.png');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/prDDFtLL/Gemini_Generated_Image_qr1breqr1breqr1b.png');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/RhccHzZv/Gemini_Generated_Image_u4n659u4n659u4n6.png');"></div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <span>Visualização & Design</span>
+                    <h3>Modelagem e Visualização Arquitetónica</h3>
+                    <p>Criação de espaços interiores e exteriores com foco na atmosfera, iluminação realista e materialidade. Utilização avançada de softwares de modelação e renderização em tempo real para apresentar a conceção espacial de forma imersiva e precisa.</p>
+                    <a href="#" class="btn-link">Ver galeria do projeto</a>
+                </div>
+            </article>
+
+            <!-- Projeto 3: Urbanismo -->
+            <article class="project-item reveal">
+                <div class="project-image">
+                    <div class="slideshow-container">
+                        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1508873535684-277a3cb8c984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <span>Pesquisa Académica (PIBIC/FAPESB)</span>
+                    <h3>Arquitetura de Emergência e Infraestrutura de Saúde</h3>
+                    <p>Pesquisa com foco no levantamento de desastres naturais em meio urbano e epidemias no Estado da Bahia. O estudo explora como a arquitetura e os equipamentos efêmeros podem responder rapidamente às necessidades na área da saúde em cenários de crise.</p>
+                    
+                    <div class="certifications-list">
+                        <span class="cert-title">Produção Académica e Certificações:</span>
+                        <ul>
+                            <li><a href="Certificado - PIBIC - UFBA.pdf" target="_blank">Declaração PIBIC/UFBA - Iniciação Científica (320h)</a></li>
+                            <li><a href="CONGRESSO UFBA - APRESENTAÇÃO.pdf" target="_blank">Apresentação de Trabalho: Congresso UFBA 2023</a></li>
+                            <li><a href="CONGRESSO UFBA - PARTICIPAÇÃO.pdf" target="_blank">Participação: Congresso UFBA 2023 (30h)</a></li>
+                            <li><a href="CERTIFICADO - Seminário Anual GEA-Hosp.pdf" target="_blank">Seminário Anual GEA-hosp (10h)</a></li>
+                            <li><a href="Certificado - Palestra técnica ABDEH Ferramenta para auxílio do projeto de EAS.pdf" target="_blank">Palestra Técnica ABDEH: Projetos de EAS (2h)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <div class="section-header reveal">
+            <h2>EXPERTISE TÉCNICA</h2>
+        </div>
+        
+        <div class="skills-grid reveal">
+            <div class="skill-category">
+                <h4>Metodologia & Modelagem</h4>
+                <ul>
+                    <li>Autodesk Revit</li>
+                    <li>ArchiCAD</li>
+                    <li>Metodologia BIM</li>
+                    <li>AutoCAD</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Visualização & 3D</h4>
+                <ul>
+                    <li>Twinmotion</li>
+                    <li>D5 Render</li>
+                    <li>SketchUp</li>
+                    <li>Photoshop</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Desenvolvimento</h4>
+                <ul>
+                    <li>C# (.NET 8)</li>
+                    <li>Revit API</li>
+                    <li>HTML5 / CSS3</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>CAIO ALMEIDA</h2>
+        <div style="margin-bottom: 20px;">
+            <a href="tel:+5538999262019" style="color: #fff; margin: 0 10px; font-family: var(--font-display); font-size: 0.9rem;">(38) 99926-2019</a>
+            <span style="color: #666;">|</span>
+            <a href="mailto:caioaphonso@gmail.com" style="color: #fff; margin: 0 10px; font-family: var(--font-display); font-size: 0.9rem;">caioaphonso@gmail.com</a>
+            <span style="color: #666;">|</span>
+            <a href="https://linkedin.com/in/caioaphonso" target="_blank" style="color: #fff; margin: 0 10px; font-family: var(--font-display); font-size: 0.9rem;">LinkedIn</a>
+        </div>
+        <p>SALVADOR, BA &mdash; BRASIL <br> © 2026 TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <script>
+        // 1. Efeito do Navbar mudar de cor no scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Animação de Fade-in (Reveal) ao fazer scroll da página
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Distância antes de aparecer
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        
+        // Verifica no carregamento da página e em cada scroll
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+
+        // 3. Lógica do Slideshow
+        document.querySelectorAll('.slideshow-container').forEach(container => {
+            let slides = container.querySelectorAll('.slide');
+            if(slides.length <= 1) return;
+            let currentSlide = 0;
+            
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 4500); // Troca a imagem a cada 4.5 segundos
+        });
+    </script>
+
+</body>
+</html>
