@@ -1,23 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Caio Aphonso Almeida: arquitetura, paisagismo biofílico, tecnologia BIM, visualização e pesquisa aplicada.">
-    <meta name="theme-color" content="#171714">
-    <meta property="og:title" content="Caio Aphonso Almeida | Arquitetura, BIM & Inovação">
-    <meta property="og:description" content="Projetos na interseção entre arquitetura, paisagem, tecnologia e experiência humana.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:image" content="https://i.postimg.cc/cJHM5jXv/Gemini_Generated_Image_1h0fge1h0fge1h0f.png">
-
-    <title>Caio Aphonso Almeida | Arquitetura, BIM & Inovação</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Portfólio de Caio Aphonso Almeida: arquitetura, paisagismo biofílico, tecnologia BIM, visualização e pesquisa aplicada." name="description"/>
+<meta content="#171714" name="theme-color"/>
+<meta content="Caio Aphonso Almeida | Arquitetura, BIM &amp; Inovação" property="og:title"/>
+<meta content="Projetos na interseção entre arquitetura, paisagem, tecnologia e experiência humana." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="https://i.postimg.cc/cJHM5jXv/Gemini_Generated_Image_1h0fge1h0fge1h0f.png" property="og:image"/>
+<title>Caio Aphonso Almeida | Arquitetura, BIM &amp; Inovação</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@300;400;500;600&amp;family=Syne:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --paper: #f1f0e9;
             --paper-deep: #e8e6dc;
@@ -684,6 +682,30 @@
         .project:nth-child(even) .project-media { order: 2; }
         .project:nth-child(even) .project-copy { order: 1; }
 
+        .project--text-only,
+        .project--text-only:nth-child(even) {
+            grid-template-columns: 1fr;
+            padding-top: clamp(2.5rem, 5vw, 5rem);
+            border-top: 1px solid var(--line-light);
+        }
+
+        .project--text-only .project-copy {
+            position: static;
+            display: grid;
+            grid-template-columns: minmax(6rem, .22fr) minmax(0, .78fr);
+            gap: clamp(2rem, 6vw, 7rem);
+            width: 100%;
+            max-width: 74rem;
+        }
+
+        .project--text-only .project-number {
+            margin-bottom: 0;
+        }
+
+        .project--text-only .project-copy-inner {
+            max-width: 54rem;
+        }
+
         .project-media {
             position: relative;
             min-height: clamp(28rem, 55vw, 52rem);
@@ -1146,6 +1168,10 @@
                 display: block;
             }
 
+            .project--text-only .project-copy {
+                display: block;
+            }
+
             .project-copy-inner {
                 grid-column: auto;
             }
@@ -1229,408 +1255,482 @@
             }
         }
 
-    </style>
+    
+
+        /* Retratos de Novorizonte: screenshots integrais da experiência digital. */
+        #novorizonte .carousel-slide {
+            background: #e8ddc4;
+        }
+
+        #novorizonte .carousel-slide img {
+            object-fit: contain;
+            filter: saturate(.96) contrast(1.02);
+            transform: scale(1);
+        }
+
+        #novorizonte .carousel-slide.is-active img {
+            transform: scale(1.012);
+        }
+
+        #novorizonte .project-specs div {
+            grid-template-columns: 6.8rem minmax(0, 1fr);
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem 1.5rem;
+        }
+
+        @media (max-width: 520px) {
+            #novorizonte .project-specs div {
+                grid-template-columns: 1fr;
+                gap: .25rem;
+            }
+
+            .project-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* AssBIM / Prêmio IEL: dados de impacto com leitura editorial. */
+        #assbim .project-description {
+            text-wrap: pretty;
+        }
+
+        #assbim .project-specs div {
+            grid-template-columns: 7.4rem minmax(0, 1fr);
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin: 0 0 2.2rem;
+            border-top: 1px solid var(--line-light);
+            border-bottom: 1px solid var(--line-light);
+        }
+
+        .project-metric {
+            min-width: 0;
+            padding: 1rem .9rem 1rem 0;
+        }
+
+        .project-metric + .project-metric {
+            padding-left: .9rem;
+            border-left: 1px solid var(--line-light);
+        }
+
+        .project-metric strong {
+            display: block;
+            margin-bottom: .3rem;
+            color: var(--accent);
+            font-family: var(--display);
+            font-size: clamp(1.15rem, 2vw, 1.75rem);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -.035em;
+        }
+
+        .project-metric span {
+            display: block;
+            color: rgba(255,255,255,.62);
+            font-size: .68rem;
+            line-height: 1.45;
+        }
+
+        @media (max-width: 720px) {
+            .project-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .project-metric,
+            .project-metric + .project-metric {
+                padding: .85rem 0;
+                border-left: 0;
+            }
+
+            .project-metric + .project-metric {
+                border-top: 1px solid var(--line-light);
+            }
+        }
+
+        @media (max-width: 520px) {
+            #assbim .project-specs div {
+                grid-template-columns: 1fr;
+                gap: .25rem;
+            }
+        }
+</style>
 </head>
 <body>
-    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
-
-    <div class="page-progress" aria-hidden="true"><span id="progressBar"></span></div>
-
-    <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
-        <div class="shell nav-inner">
-            <a class="brand" href="#inicio" aria-label="Caio Almeida — voltar ao início">
-                <span class="brand-mark" aria-hidden="true">CA</span>
-                <span class="brand-name">Caio Almeida</span>
-            </a>
-
-            <span class="nav-index" aria-hidden="true">Portfólio / 2026</span>
-
-            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks">
-                <span>Menu</span>
-                <span class="menu-toggle-lines" aria-hidden="true"></span>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main id="conteudo">
-        <header class="hero" id="inicio">
-            <div class="carousel" data-carousel data-interval="5600" role="region" aria-roledescription="carrossel" aria-label="Seleção de imagens de projetos">
-                <div class="carousel-track">
-                    <figure class="carousel-slide is-active" data-fallback="Imagem de abertura indisponível">
-                        <img src="https://i.postimg.cc/cJHM5jXv/Gemini_Generated_Image_1h0fge1h0fge1h0f.png" alt="" fetchpriority="high">
-                    </figure>
-                    <figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
-                        <img src="https://i.postimg.cc/xdCyF7tm/Gemini_Generated_Image_70t1az70t1az70t1.png" alt="" loading="lazy" decoding="async">
-                    </figure>
-                    <figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
-                        <img src="https://i.postimg.cc/0NQdH3cK/Gemini_Generated_Image_bq5ch3bq5ch3bq5c.png" alt="" loading="lazy" decoding="async">
-                    </figure>
-                    <figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
-                        <img src="https://i.postimg.cc/jj5Qk9ZN/Gemini_Generated_Image_ieb9f6ieb9f6ieb9.png" alt="" loading="lazy" decoding="async">
-                    </figure>
-                    <figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
-                        <img src="https://i.postimg.cc/SKs7t5Df/Gemini_Generated_Image_kx7zylkx7zylkx7z.png" alt="" loading="lazy" decoding="async">
-                    </figure>
-                </div>
-
-                <div class="carousel-controls" aria-label="Controles das imagens de abertura">
-                    <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                    <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>05</span></span>
-                    <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                </div>
-            </div>
-
-            <div class="hero-layout">
-                <div class="hero-copy reveal is-visible">
-                    <p class="eyebrow">Arquitetura · BIM · Pesquisa · Código</p>
-                    <h1>Espaço, <em>matéria &amp; algoritmo</em></h1>
-
-                    <div class="hero-bottom">
-                        <p class="hero-intro">Projetos concebidos na interseção entre sensibilidade espacial, precisão técnica e inovação computacional.</p>
-                        <div class="hero-meta" aria-label="Localização e área de atuação">
-                            Salvador — Bahia<br>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+<div aria-hidden="true" class="page-progress"><span id="progressBar"></span></div>
+<nav aria-label="Navegação principal" class="site-nav" id="siteNav">
+<div class="shell nav-inner">
+<a aria-label="Caio Almeida — voltar ao início" class="brand" href="#inicio">
+<span aria-hidden="true" class="brand-mark">CA</span>
+<span class="brand-name">Caio Almeida</span>
+</a>
+<span aria-hidden="true" class="nav-index">Portfólio / 2026</span>
+<button aria-controls="navLinks" aria-expanded="false" class="menu-toggle" id="menuToggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="menu-toggle-lines"></span>
+</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#perfil">Perfil</a></li>
+<li><a href="#projetos">Projetos</a></li>
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</div>
+</nav>
+<main id="conteudo">
+<header class="hero" id="inicio">
+<div aria-label="Seleção de imagens de projetos" aria-roledescription="carrossel" class="carousel" data-carousel="" data-interval="5600" role="region">
+<div class="carousel-track">
+<figure class="carousel-slide is-active" data-fallback="Imagem de abertura indisponível">
+<img alt="" fetchpriority="high" src="https://i.postimg.cc/cJHM5jXv/Gemini_Generated_Image_1h0fge1h0fge1h0f.png"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
+<img alt="" decoding="async" loading="lazy" src="https://i.postimg.cc/xdCyF7tm/Gemini_Generated_Image_70t1az70t1az70t1.png"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
+<img alt="" decoding="async" loading="lazy" src="https://i.postimg.cc/0NQdH3cK/Gemini_Generated_Image_bq5ch3bq5ch3bq5c.png"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
+<img alt="" decoding="async" loading="lazy" src="https://i.postimg.cc/jj5Qk9ZN/Gemini_Generated_Image_ieb9f6ieb9f6ieb9.png"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Imagem de abertura indisponível">
+<img alt="" decoding="async" loading="lazy" src="https://i.postimg.cc/SKs7t5Df/Gemini_Generated_Image_kx7zylkx7zylkx7z.png"/>
+</figure>
+</div>
+<div aria-label="Controles das imagens de abertura" class="carousel-controls">
+<button aria-label="Imagem anterior" class="carousel-button" data-carousel-prev="" type="button">←</button>
+<span aria-live="polite" class="carousel-counter"><span data-current="">01</span> / <span data-total="">05</span></span>
+<button aria-label="Próxima imagem" class="carousel-button" data-carousel-next="" type="button">→</button>
+</div>
+</div>
+<div class="hero-layout">
+<div class="hero-copy reveal is-visible">
+<p class="eyebrow">Arquitetura · BIM · Pesquisa · Código</p>
+<h1>Espaço, <em>matéria &amp; algoritmo</em></h1>
+<div class="hero-bottom">
+<p class="hero-intro">Projetos concebidos na interseção entre sensibilidade espacial, precisão técnica e inovação computacional.</p>
+<div aria-label="Localização e área de atuação" class="hero-meta">
+                            Salvador — Bahia<br/>
                             Arquitetura &amp; Urbanismo
                         </div>
-                    </div>
-                </div>
+</div>
+</div>
+<span aria-hidden="true" class="hero-side-label">Caio Aphonso Almeida / Portfólio selecionado</span>
+</div>
+</header>
+<section class="section" id="perfil">
+<div class="shell">
+<div class="section-head reveal">
+<p class="section-kicker"><span>01</span> Perfil</p>
+<h2 class="section-title">Pensamento <span class="outline">espacial</span> em movimento</h2>
+</div>
+<div class="about-grid">
+<div class="about-portrait reveal">
+<div aria-label="Registros pessoais e acadêmicos" aria-roledescription="carrossel" class="carousel" data-carousel="" data-interval="6200" role="region">
+<div class="carousel-track">
+<figure class="carousel-slide is-active" data-fallback="Registro indisponível">
+<img alt="Retrato de Caio Almeida" decoding="async" loading="lazy" src="https://i.postimg.cc/yNLnVvWJ/1.png"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Registro indisponível">
+<img alt="Caio Almeida em atividade acadêmica" decoding="async" loading="lazy" src="https://i.postimg.cc/rs1rpwgb/20241028_110123.jpg"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Registro indisponível">
+<img alt="Registro de atividade de arquitetura" decoding="async" loading="lazy" src="https://i.postimg.cc/pdKx45d0/IMG_20221201_WA0000.jpg"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Registro indisponível">
+<img alt="Registro de atividade acadêmica" decoding="async" loading="lazy" src="https://i.postimg.cc/SNYPgFRd/IMG_20221121_WA0016.jpg"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Registro indisponível">
+<img alt="Registro da trajetória acadêmica de Caio Almeida" decoding="async" loading="lazy" src="https://i.postimg.cc/RFbPTXzj/IMG_20220308_WA0018.jpg"/>
+</figure>
+</div>
+<div aria-label="Controles dos registros pessoais" class="carousel-controls">
+<button aria-label="Imagem anterior" class="carousel-button" data-carousel-prev="" type="button">←</button>
+<span aria-live="polite" class="carousel-counter"><span data-current="">01</span> / <span data-total="">05</span></span>
+<button aria-label="Próxima imagem" class="carousel-button" data-carousel-next="" type="button">→</button>
+</div>
+</div>
+</div>
+<div class="about-copy reveal">
+<p class="manifesto">Arquitetura não é apenas forma: é sistema, experiência e possibilidade.<sup>01</sup></p>
+<p>Sou estudante de Arquitetura e Urbanismo, com atuação orientada por projetos inovadores, modelagem BIM, visualização arquitetônica e gestão de processos.</p>
+<p>Minha pesquisa busca aproximar o raciocínio projetual da programação aplicada. Desenvolvo plugins e ferramentas que transformam tarefas repetitivas em fluxos mais claros, precisos e inteligentes.</p>
+<div aria-label="Princípios de atuação" class="principles">
+<article class="principle">
+<span class="principle-index">A / 01</span>
+<strong>Conceito</strong>
+<p>Ideias com identidade, leitura de contexto e intenção espacial.</p>
+</article>
+<article class="principle">
+<span class="principle-index">A / 02</span>
+<strong>Precisão</strong>
+<p>Decisões apoiadas por método, documentação e coordenação BIM.</p>
+</article>
+<article class="principle">
+<span class="principle-index">A / 03</span>
+<strong>Inovação</strong>
+<p>Tecnologia como instrumento de projeto, não como fim isolado.</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section projects-section" id="projetos">
+<div class="shell">
+<div class="section-head reveal">
+<p class="section-kicker"><span>02</span> Projetos</p>
+<h2 class="section-title">Trabalhos <span class="outline">selecionados</span></h2>
+</div>
+<div class="projects-list">
+<article class="project reveal" id="assbim">
+<div class="project-media">
+<div aria-label="Imagens do projeto AssBIM e do relatório para o Prêmio IEL Talentos 2026" aria-roledescription="carrossel" class="carousel" data-carousel="" data-interval="5400" role="region">
+<div class="carousel-track">
+<figure class="carousel-slide is-active" data-fallback="Interface do AssBIM indisponível">
+<img alt="Tela inicial do ecossistema AssBIM integrada ao Autodesk Revit" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-interface.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Biblioteca e auditoria do AssBIM indisponíveis">
+<img alt="Biblioteca visual de componentes e relatório de auditoria do AssBIM no Revit" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-biblioteca-auditoria.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Associador de imagens indisponível">
+<img alt="Ferramenta do AssBIM associando imagens reais a componentes de vegetação" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-associacao-imagens.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Estudo de viabilidade indisponível">
+<img alt="Ferramenta de estudo de viabilidade do AssBIM com dados de custo e áreas do projeto" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-estudo-viabilidade.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Ferramentas em expansão indisponíveis">
+<img alt="Conjunto de ferramentas em desenvolvimento para auditoria, modelagem, elétrica e inteligência artificial" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-ferramentas-expansao.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Apresentação do AssBIM indisponível">
+<img alt="Apresentação do AssBIM para as equipes de arquitetura e orçamento da FIEB" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-apresentacao-equipes.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Equipe de engenharia indisponível">
+<img alt="Equipe de engenharia da FIEB reunida em 2025" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/assbim/assbim-equipe-engenharia.webp"/>
+</figure>
+</div>
+<div aria-label="Controles do projeto AssBIM" class="carousel-controls">
+<button aria-label="Imagem anterior" class="carousel-button" data-carousel-prev="" type="button">←</button>
+<span aria-live="polite" class="carousel-counter"><span data-current="">01</span> / <span data-total="">07</span></span>
+<button aria-label="Próxima imagem" class="carousel-button" data-carousel-next="" type="button">→</button>
+</div>
+</div>
+</div>
+<div class="project-copy">
+<span class="project-number">P / 01</span>
+<div class="project-copy-inner">
+<p class="project-category">Inovação · BIM · Software corporativo</p>
+<h3 class="project-title">AssBIM — Ecossistema AEC de Automação</h3>
+<p class="project-description">Ecossistema proprietário desenvolvido durante o estágio na Gerência de Engenharia da FIEB para transformar fluxos fragmentados de modelagem e orçamento em processos integrados dentro do Autodesk Revit. O AssBIM centraliza componentes BIM, audita metadados e avisos do modelo, associa imagens botânicas e conecta áreas do projeto a dados de CUB para gerar estudos de viabilidade e relatórios financeiros. A iniciativa foi apresentada ao Prêmio IEL Talentos 2026, na modalidade Estagiário Inovador, e aprovada como pesquisa tecnológica no PIBITI.</p>
+<div aria-label="Principais impactos do AssBIM" class="project-metrics">
+<div class="project-metric"><strong>2</strong><span>módulos integrados: Modelagem e Orçamento</span></div>
+<div class="project-metric"><strong>2–4 min</strong><span>para buscar, carregar e verificar um componente; antes, 15–30 min</span></div>
+<div class="project-metric"><strong>até 33 dias</strong><span>de economia estimada em ciclos de viabilidade com revisões</span></div>
+</div>
+<dl class="project-specs">
+<div><dt>Instituição</dt><dd>SESI / Gerência de Engenharia da FIEB</dd></div>
+<div><dt>Tecnologia</dt><dd>C#, .NET 8, Revit API, WebView2 e Azure Cloud Services</dd></div>
+<div><dt>Entregas</dt><dd>Biblioteca BIM, auditoria de componentes, associação de imagens e estudo de viabilidade</dd></div>
+<div><dt>Impacto</dt><dd>Padronização, rastreabilidade, autonomia orçamentária e redução de tarefas manuais</dd></div>
+<div><dt>Pesquisa</dt><dd>Expansão aprovada no Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação — PIBITI</dd></div>
+</dl>
+<a class="text-link" href="portfolio_caio_almeida_com_novorizonte/documentos/premio-iel-talentos-2026-assbim.pdf" rel="noopener noreferrer" target="_blank">Abrir relatório técnico completo <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</article>
 
-                <span class="hero-side-label" aria-hidden="true">Caio Aphonso Almeida / Portfólio selecionado</span>
-            </div>
-        </header>
-
-        <section class="section" id="perfil">
-            <div class="shell">
-                <div class="section-head reveal">
-                    <p class="section-kicker"><span>01</span> Perfil</p>
-                    <h2 class="section-title">Pensamento <span class="outline">espacial</span> em movimento</h2>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-portrait reveal">
-                        <div class="carousel" data-carousel data-interval="6200" role="region" aria-roledescription="carrossel" aria-label="Registros pessoais e acadêmicos">
-                            <div class="carousel-track">
-                                <figure class="carousel-slide is-active" data-fallback="Registro indisponível">
-                                    <img src="https://i.postimg.cc/yNLnVvWJ/1.png" alt="Retrato de Caio Almeida" loading="lazy" decoding="async">
-                                </figure>
-                                <figure class="carousel-slide" data-fallback="Registro indisponível">
-                                    <img src="https://i.postimg.cc/rs1rpwgb/20241028_110123.jpg" alt="Caio Almeida em atividade acadêmica" loading="lazy" decoding="async">
-                                </figure>
-                                <figure class="carousel-slide" data-fallback="Registro indisponível">
-                                    <img src="https://i.postimg.cc/pdKx45d0/IMG_20221201_WA0000.jpg" alt="Registro de atividade de arquitetura" loading="lazy" decoding="async">
-                                </figure>
-                                <figure class="carousel-slide" data-fallback="Registro indisponível">
-                                    <img src="https://i.postimg.cc/SNYPgFRd/IMG_20221121_WA0016.jpg" alt="Registro de atividade acadêmica" loading="lazy" decoding="async">
-                                </figure>
-                                <figure class="carousel-slide" data-fallback="Registro indisponível">
-                                    <img src="https://i.postimg.cc/RFbPTXzj/IMG_20220308_WA0018.jpg" alt="Registro da trajetória acadêmica de Caio Almeida" loading="lazy" decoding="async">
-                                </figure>
-                            </div>
-
-                            <div class="carousel-controls" aria-label="Controles dos registros pessoais">
-                                <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                                <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>05</span></span>
-                                <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-copy reveal">
-                        <p class="manifesto">Arquitetura não é apenas forma: é sistema, experiência e possibilidade.<sup>01</sup></p>
-                        <p>Sou estudante de Arquitetura e Urbanismo, com atuação orientada por projetos inovadores, modelagem BIM, visualização arquitetônica e gestão de processos.</p>
-                        <p>Minha pesquisa busca aproximar o raciocínio projetual da programação aplicada. Desenvolvo plugins e ferramentas que transformam tarefas repetitivas em fluxos mais claros, precisos e inteligentes.</p>
-
-                        <div class="principles" aria-label="Princípios de atuação">
-                            <article class="principle">
-                                <span class="principle-index">A / 01</span>
-                                <strong>Conceito</strong>
-                                <p>Ideias com identidade, leitura de contexto e intenção espacial.</p>
-                            </article>
-                            <article class="principle">
-                                <span class="principle-index">A / 02</span>
-                                <strong>Precisão</strong>
-                                <p>Decisões apoiadas por método, documentação e coordenação BIM.</p>
-                            </article>
-                            <article class="principle">
-                                <span class="principle-index">A / 03</span>
-                                <strong>Inovação</strong>
-                                <p>Tecnologia como instrumento de projeto, não como fim isolado.</p>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section projects-section" id="projetos">
-            <div class="shell">
-                <div class="section-head reveal">
-                    <p class="section-kicker"><span>02</span> Projetos</p>
-                    <h2 class="section-title">Trabalhos <span class="outline">selecionados</span></h2>
-                </div>
-
-                <div class="projects-list">
-                    <article class="project reveal" id="assbim">
-                        <div class="project-media">
-                            <div class="carousel" data-carousel data-interval="5200" role="region" aria-roledescription="carrossel" aria-label="Imagens do projeto AssBIM">
-                                <div class="carousel-track">
-                                    <figure class="carousel-slide is-active" data-fallback="Imagem do AssBIM indisponível">
-                                        <img src="https://i.postimg.cc/65m2yjhM/1772841611429.jpg" alt="Interface do plugin AssBIM para Autodesk Revit" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Imagem do AssBIM indisponível">
-                                        <img src="https://i.postimg.cc/x1NkHvxd/1772841611310.jpg" alt="Tela de recursos do plugin AssBIM" loading="lazy" decoding="async">
-                                    </figure>
-                                </div>
-
-                                <div class="carousel-controls" aria-label="Controles do projeto AssBIM">
-                                    <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                                    <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>02</span></span>
-                                    <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-copy">
-                            <span class="project-number">P / 01</span>
-                            <div class="project-copy-inner">
-                                <p class="project-category">Software · Automação BIM</p>
-                                <h3 class="project-title">AssBIM para Autodesk Revit</h3>
-                                <p class="project-description">Desenvolvimento integral de um plugin voltado à automação de processos, organização de dados e aumento da eficiência na rotina de projeto em BIM.</p>
-
-                                <dl class="project-specs">
-                                    <div><dt>Tipo</dt><dd>Plugin para Revit</dd></div>
-                                    <div><dt>Tecnologia</dt><dd>C#, .NET 8 e Revit API</dd></div>
-                                    <div><dt>Foco</dt><dd>Produtividade, padronização e gestão de informações</dd></div>
-                                </dl>
-
-                                <a class="text-link" href="mailto:caioaphonso@gmail.com?subject=Apresentação%20do%20projeto%20AssBIM">Solicitar apresentação <span aria-hidden="true">↗</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project reveal" id="visualizacao">
-                        <div class="project-media">
-                            <div class="carousel" data-carousel data-interval="5000" role="region" aria-roledescription="carrossel" aria-label="Imagens de visualização arquitetônica">
-                                <div class="carousel-track">
-                                    <figure class="carousel-slide is-active" data-fallback="Visualização arquitetônica indisponível">
-                                        <img src="https://i.postimg.cc/k5pFrcpc/Gemini_Generated_Image_mctca3mctca3mctc.png" alt="Visualização arquitetônica de ambiente projetado" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Visualização arquitetônica indisponível">
-                                        <img src="https://i.postimg.cc/XqwwC07s/Gemini_Generated_Image_o6vfngo6vfngo6vf.png" alt="Renderização arquitetônica com estudo de luz e materialidade" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Visualização arquitetônica indisponível">
-                                        <img src="https://i.postimg.cc/vTWWVdZR/Gemini_Generated_Image_qftyw1qftyw1qfty.png" alt="Cena arquitetônica externa renderizada" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Visualização arquitetônica indisponível">
-                                        <img src="https://i.postimg.cc/prDDFtLL/Gemini_Generated_Image_qr1breqr1breqr1b.png" alt="Estudo de atmosfera em visualização arquitetônica" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Visualização arquitetônica indisponível">
-                                        <img src="https://i.postimg.cc/RhccHzZv/Gemini_Generated_Image_u4n659u4n659u4n6.png" alt="Render arquitetônico de espaço contemporâneo" loading="lazy" decoding="async">
-                                    </figure>
-                                </div>
-
-                                <div class="carousel-controls" aria-label="Controles do projeto de visualização arquitetônica">
-                                    <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                                    <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>05</span></span>
-                                    <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-copy">
-                            <span class="project-number">P / 02</span>
-                            <div class="project-copy-inner">
-                                <p class="project-category">Arquitetura · Visualização</p>
-                                <h3 class="project-title">Atmosfera, luz e materialidade</h3>
-                                <p class="project-description">Modelagem e representação de espaços interiores e exteriores com atenção à narrativa visual, à percepção de escala e ao comportamento dos materiais.</p>
-
-                                <dl class="project-specs">
-                                    <div><dt>Escopo</dt><dd>Modelagem, composição e renderização</dd></div>
-                                    <div><dt>Ferramentas</dt><dd>Revit, SketchUp, Twinmotion, D5 Render e Photoshop</dd></div>
-                                    <div><dt>Entrega</dt><dd>Imagens de apresentação e estudos de atmosfera</dd></div>
-                                </dl>
-
-                                <a class="text-link" href="#contato">Conversar sobre visualização <span aria-hidden="true">↓</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-
-                    <article class="project reveal" id="cape-biofilico">
-                        <div class="project-media">
-                            <div class="carousel" data-carousel data-interval="6200" role="region" aria-roledescription="carrossel" aria-label="Imagens do projeto de paisagismo e design biofílico para o CAPE-BA">
-                                <div class="carousel-track">
-                                    <figure class="carousel-slide is-active" data-fallback="Vista isométrica do projeto indisponível">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-vista-isometrica-aquarela.webp" alt="Vista isométrica em aquarela do projeto paisagístico do CAPE-BA" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Jardim sensorial indisponível">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-jardim-sensorial.webp" alt="Jardim sensorial com percurso tátil, vegetação e equipamentos de experimentação" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Pátio biofílico indisponível">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-patio-cajueiro.webp" alt="Pátio biofílico sombreado por cajueiro, com bancos e iluminação de apoio" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Rampa e estacionamento indisponíveis">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-rampa-estacionamento.webp" alt="Integração paisagística entre estacionamento permeável, vegetação e rampa acessível" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Planta paisagística indisponível">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-planta-baixa.webp" alt="Planta baixa geral da implantação paisagística do CAPE-BA" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Área de permanência indisponível">
-                                        <img src="portfolio_caio_almeida_com_cape/assets/cape/cape-permanencia-pergolado.webp" alt="Área de permanência com pergolado, bougainville e paisagismo de acolhimento" loading="lazy" decoding="async">
-                                    </figure>
-                                </div>
-
-                                <div class="carousel-controls" aria-label="Controles do projeto CAPE-BA">
-                                    <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                                    <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>06</span></span>
-                                    <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-copy">
-                            <span class="project-number">P / 03</span>
-                            <div class="project-copy-inner">
-                                <p class="project-category">Paisagismo · Design biofílico · Extensão</p>
-                                <h3 class="project-title">Paisagem como ferramenta pedagógica</h3>
-                                <p class="project-description">Proposta paisagística para os espaços externos do CAPE-BA, concebida como infraestrutura de aprendizagem, convivência e bem-estar. O projeto articula jardim sensorial, horta pedagógica, áreas de espera e descanso, percursos acessíveis e vegetação de interesse sazonal.</p>
-
-                                <dl class="project-specs">
-                                    <div><dt>Projeto</dt><dd>Paisagismo e Design Biofílico — CAPE-BA</dd></div>
-                                    <div><dt>Disciplina</dt><dd>ARQD25 — Ateliê Extensionista</dd></div>
-                                    <div><dt>Equipe</dt><dd>Caio Aphonso, Hanna Andrade e Samille Costa</dd></div>
-                                    <div><dt>Diretrizes</dt><dd>Acessibilidade, conforto térmico, biodiversidade e aprendizagem ao ar livre</dd></div>
-                                    <div><dt>Entregas</dt><dd>Programa de usos, fluxos, espécies, fenologia, planta e perspectivas</dd></div>
-                                </dl>
-
-                                <a class="text-link" href="portfolio_caio_almeida_com_cape/documentos/projeto-paisagismo-design-biofilico-cape-ba.pdf" target="_blank" rel="noopener noreferrer">Abrir caderno completo <span aria-hidden="true">↗</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project reveal" id="pesquisa">
-                        <div class="project-media">
-                            <div class="carousel" data-carousel data-interval="5800" role="region" aria-roledescription="carrossel" aria-label="Imagens relacionadas à pesquisa em arquitetura de emergência">
-                                <div class="carousel-track">
-                                    <figure class="carousel-slide is-active" data-fallback="Imagem de pesquisa indisponível">
-                                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=85" alt="Arquitetura hospitalar contemporânea" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Imagem de pesquisa indisponível">
-                                        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=85" alt="Ambiente interno de infraestrutura de saúde" loading="lazy" decoding="async">
-                                    </figure>
-                                    <figure class="carousel-slide" data-fallback="Imagem de pesquisa indisponível">
-                                        <img src="https://images.unsplash.com/photo-1508873535684-277a3cb8c984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=85" alt="Estrutura urbana relacionada à pesquisa acadêmica" loading="lazy" decoding="async">
-                                    </figure>
-                                </div>
-
-                                <div class="carousel-controls" aria-label="Controles do projeto de pesquisa">
-                                    <button class="carousel-button" type="button" data-carousel-prev aria-label="Imagem anterior">←</button>
-                                    <span class="carousel-counter" aria-live="polite"><span data-current>01</span> / <span data-total>03</span></span>
-                                    <button class="carousel-button" type="button" data-carousel-next aria-label="Próxima imagem">→</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-copy">
-                            <span class="project-number">P / 04</span>
-                            <div class="project-copy-inner">
-                                <p class="project-category">Pesquisa acadêmica · PIBIC / FAPESB</p>
-                                <h3 class="project-title">Arquitetura de emergência e saúde</h3>
-                                <p class="project-description">Pesquisa sobre desastres naturais, epidemias e respostas espaciais rápidas no Estado da Bahia, investigando o papel de estruturas efêmeras e equipamentos de saúde em cenários de crise.</p>
-
-                                <dl class="project-specs">
-                                    <div><dt>Área</dt><dd>Arquitetura hospitalar e emergencial</dd></div>
-                                    <div><dt>Recorte</dt><dd>Estado da Bahia</dd></div>
-                                    <div><dt>Abordagem</dt><dd>Levantamento, análise e resposta projetual</dd></div>
-                                </dl>
-
-                                <details class="research-details">
-                                    <summary>Produção acadêmica e certificados</summary>
-                                    <ul>
-                                        <li><a href="Certificado - PIBIC - UFBA.pdf" target="_blank" rel="noopener noreferrer">Declaração PIBIC/UFBA — Iniciação Científica (320h)</a></li>
-                                        <li><a href="CONGRESSO UFBA - APRESENTAÇÃO.pdf" target="_blank" rel="noopener noreferrer">Apresentação de trabalho — Congresso UFBA 2023</a></li>
-                                        <li><a href="CONGRESSO UFBA - PARTICIPAÇÃO.pdf" target="_blank" rel="noopener noreferrer">Participação — Congresso UFBA 2023 (30h)</a></li>
-                                        <li><a href="CERTIFICADO - Seminário Anual GEA-Hosp.pdf" target="_blank" rel="noopener noreferrer">Seminário Anual GEA-hosp (10h)</a></li>
-                                        <li><a href="Certificado - Palestra técnica ABDEH Ferramenta para auxílio do projeto de EAS.pdf" target="_blank" rel="noopener noreferrer">Palestra Técnica ABDEH — Projetos de EAS (2h)</a></li>
-                                    </ul>
-                                </details>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="expertise">
-            <div class="shell">
-                <div class="section-head reveal">
-                    <p class="section-kicker"><span>03</span> Expertise</p>
-                    <h2 class="section-title">Ferramentas como <span class="outline">linguagem</span></h2>
-                </div>
-
-                <div class="expertise-grid reveal">
-                    <article class="expertise-row">
-                        <div class="expertise-label"><span>01</span> Projeto &amp; BIM</div>
-                        <ul class="expertise-items">
-                            <li>Revit</li>
-                            <li>ArchiCAD</li>
-                            <li>AutoCAD</li>
-                            <li>Metodologia BIM</li>
-                        </ul>
-                    </article>
-
-                    <article class="expertise-row">
-                        <div class="expertise-label"><span>02</span> Visualização</div>
-                        <ul class="expertise-items">
-                            <li>Twinmotion</li>
-                            <li>D5 Render</li>
-                            <li>SketchUp</li>
-                            <li>Photoshop</li>
-                        </ul>
-                    </article>
-
-                    <article class="expertise-row">
-                        <div class="expertise-label"><span>03</span> Desenvolvimento</div>
-                        <ul class="expertise-items">
-                            <li>C#</li>
-                            <li>.NET 8</li>
-                            <li>Revit API</li>
-                            <li>HTML / CSS / JS</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contato">
-            <div class="shell contact-inner reveal">
-                <p class="contact-kicker">04 / Novas conexões</p>
-                <h2 class="contact-title">Vamos criar o <span>próximo espaço?</span></h2>
-
-                <div class="contact-links" aria-label="Canais de contato">
-                    <a href="mailto:caioaphonso@gmail.com">caioaphonso@gmail.com</a>
-                    <a href="tel:+5538999262019">+55 38 99926-2019</a>
-                    <a href="https://linkedin.com/in/caioaphonso" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="shell footer-inner">
-            <p>Caio Aphonso Almeida</p>
-            <p>Salvador — BA — Brasil</p>
-            <p>© <span id="currentYear">2026</span> Todos os direitos reservados</p>
-        </div>
-    </footer>
-
-    <script>
+<article class="project reveal" id="cape-biofilico">
+<div class="project-media">
+<div aria-label="Imagens do projeto de paisagismo e design biofílico para o CAPE-BA" aria-roledescription="carrossel" class="carousel" data-carousel="" data-interval="6200" role="region">
+<div class="carousel-track">
+<figure class="carousel-slide is-active" data-fallback="Vista isométrica do projeto indisponível">
+<img alt="Vista isométrica em aquarela do projeto paisagístico do CAPE-BA" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-vista-isometrica-aquarela.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Jardim sensorial indisponível">
+<img alt="Jardim sensorial com percurso tátil, vegetação e equipamentos de experimentação" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-jardim-sensorial.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Pátio biofílico indisponível">
+<img alt="Pátio biofílico sombreado por cajueiro, com bancos e iluminação de apoio" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-patio-cajueiro.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Rampa e estacionamento indisponíveis">
+<img alt="Integração paisagística entre estacionamento permeável, vegetação e rampa acessível" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-rampa-estacionamento.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Planta paisagística indisponível">
+<img alt="Planta baixa geral da implantação paisagística do CAPE-BA" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-planta-baixa.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Área de permanência indisponível">
+<img alt="Área de permanência com pergolado, bougainville e paisagismo de acolhimento" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/cape/cape-permanencia-pergolado.webp"/>
+</figure>
+</div>
+<div aria-label="Controles do projeto CAPE-BA" class="carousel-controls">
+<button aria-label="Imagem anterior" class="carousel-button" data-carousel-prev="" type="button">←</button>
+<span aria-live="polite" class="carousel-counter"><span data-current="">01</span> / <span data-total="">06</span></span>
+<button aria-label="Próxima imagem" class="carousel-button" data-carousel-next="" type="button">→</button>
+</div>
+</div>
+</div>
+<div class="project-copy">
+<span class="project-number">P / 02</span>
+<div class="project-copy-inner">
+<p class="project-category">Paisagismo · Design biofílico · Extensão</p>
+<h3 class="project-title">Paisagem como ferramenta pedagógica</h3>
+<p class="project-description">Proposta paisagística para os espaços externos do CAPE-BA, concebida como infraestrutura de aprendizagem, convivência e bem-estar. O projeto articula jardim sensorial, horta pedagógica, áreas de espera e descanso, percursos acessíveis e vegetação de interesse sazonal.</p>
+<dl class="project-specs">
+<div><dt>Projeto</dt><dd>Paisagismo e Design Biofílico — CAPE-BA</dd></div>
+<div><dt>Disciplina</dt><dd>ARQD25 — Ateliê Extensionista</dd></div>
+<div><dt>Equipe</dt><dd>Caio Aphonso, Hanna Andrade e Samille Costa</dd></div>
+<div><dt>Diretrizes</dt><dd>Acessibilidade, conforto térmico, biodiversidade e aprendizagem ao ar livre</dd></div>
+<div><dt>Entregas</dt><dd>Programa de usos, fluxos, espécies, fenologia, planta e perspectivas</dd></div>
+</dl>
+<a class="text-link" href="portfolio_caio_almeida_com_novorizonte/documentos/projeto-paisagismo-design-biofilico-cape-ba.pdf" rel="noopener noreferrer" target="_blank">Abrir caderno completo <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</article>
+<article class="project reveal" id="novorizonte">
+<div class="project-media">
+<div aria-label="Imagens da plataforma Retratos de Novorizonte - MG" aria-roledescription="carrossel" class="carousel" data-carousel="" data-interval="6000" role="region">
+<div class="carousel-track">
+<figure class="carousel-slide is-active" data-fallback="Página de abertura indisponível">
+<img alt="Página de abertura da plataforma Retratos de Novorizonte - MG" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-abertura.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Diagnóstico socioeconômico indisponível">
+<img alt="Diagnóstico social e econômico do município de Novorizonte" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-diagnostico-social.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Mapa interativo indisponível">
+<img alt="Seção de trabalhos novorizontinos com mapa territorial interativo" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-mapa-interativo.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Cartografia territorial indisponível">
+<img alt="Mapas de síntese e setorização territorial de Novorizonte" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-cartografia.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Plano de ação indisponível">
+<img alt="Eixos estratégicos do plano de ação para transparência e participação cidadã" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-plano-acao.webp"/>
+</figure>
+<figure class="carousel-slide" data-fallback="Ferramenta Simplifica Novorizonte indisponível">
+<img alt="Ferramenta Simplifica Novorizonte com acervo explicado e tradutor de linguagem pública" decoding="async" loading="lazy" src="portfolio_caio_almeida_com_novorizonte/assets/novorizonte/novorizonte-simplifica.webp"/>
+</figure>
+</div>
+<div aria-label="Controles do projeto Retratos de Novorizonte" class="carousel-controls">
+<button aria-label="Imagem anterior" class="carousel-button" data-carousel-prev="" type="button">←</button>
+<span aria-live="polite" class="carousel-counter"><span data-current="">01</span> / <span data-total="">06</span></span>
+<button aria-label="Próxima imagem" class="carousel-button" data-carousel-next="" type="button">→</button>
+</div>
+</div>
+</div>
+<div class="project-copy">
+<span class="project-number">P / 03</span>
+<div class="project-copy-inner">
+<p class="project-category">Planejamento urbano · Cartografia · Design de informação</p>
+<h3 class="project-title">Retratos de Novorizonte - MG</h3>
+<p class="project-description">Plataforma digital desenvolvida no Ateliê de Planejamento Urbano e Regional para construir um retrato territorial de Novorizonte, no norte de Minas Gerais. O trabalho conecta memória, cartografia, diagnóstico socioambiental e plano de ação em uma experiência web responsiva, culminando em uma ferramenta de linguagem simples voltada à transparência e à ampliação do acesso à informação pública.</p>
+<dl class="project-specs">
+<div><dt>Local</dt><dd>Novorizonte - Minas Gerais</dd></div>
+<div><dt>Disciplina</dt><dd>Ateliê de Planejamento Urbano e Regional</dd></div>
+<div><dt>Eixos</dt><dd>Contexto histórico, diagnóstico territorial, acervo local e plano de ação</dd></div>
+<div><dt>Entregas</dt><dd>Plataforma web, cartografia interativa, caderno-síntese e ferramenta de linguagem simples</dd></div>
+<div><dt>Diretriz</dt><dd>Participação cidadã, transparência ativa e democratização da informação</dd></div>
+<div><dt>Autoria</dt><dd>Caio Aphonso Almeida · 2026</dd></div>
+</dl>
+<div class="project-links">
+<a class="text-link" href="https://caioaphonsoal.github.io/Ateli-de-Planejamento-Urbano-e-Regional/" rel="noopener noreferrer" target="_blank">Acessar projeto online <span aria-hidden="true">↗</span></a>
+<a class="text-link" href="portfolio_caio_almeida_com_novorizonte/documentos/caderno-sintese-retratos-de-novorizonte.pdf" rel="noopener noreferrer" target="_blank">Abrir caderno-síntese <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+</article>
+<article class="project reveal project--text-only" id="pesquisa">
+<div class="project-copy">
+<span class="project-number">P / 04</span>
+<div class="project-copy-inner">
+<p class="project-category">Pesquisa acadêmica · PIBIC / FAPESB</p>
+<h3 class="project-title">Arquitetura de emergência e saúde</h3>
+<p class="project-description">Pesquisa sobre desastres naturais, epidemias e respostas espaciais rápidas no Estado da Bahia, investigando o papel de estruturas efêmeras e equipamentos de saúde em cenários de crise.</p>
+<dl class="project-specs">
+<div><dt>Área</dt><dd>Arquitetura hospitalar e emergencial</dd></div>
+<div><dt>Recorte</dt><dd>Estado da Bahia</dd></div>
+<div><dt>Abordagem</dt><dd>Levantamento, análise e resposta projetual</dd></div>
+</dl>
+<details class="research-details">
+<summary>Produção acadêmica e certificados</summary>
+<ul>
+<li><a href="Certificado - PIBIC - UFBA.pdf" rel="noopener noreferrer" target="_blank">Declaração PIBIC/UFBA — Iniciação Científica (320h)</a></li>
+<li><a href="CONGRESSO UFBA - APRESENTAÇÃO.pdf" rel="noopener noreferrer" target="_blank">Apresentação de trabalho — Congresso UFBA 2023</a></li>
+<li><a href="CONGRESSO UFBA - PARTICIPAÇÃO.pdf" rel="noopener noreferrer" target="_blank">Participação — Congresso UFBA 2023 (30h)</a></li>
+<li><a href="CERTIFICADO - Seminário Anual GEA-Hosp.pdf" rel="noopener noreferrer" target="_blank">Seminário Anual GEA-hosp (10h)</a></li>
+<li><a href="Certificado - Palestra técnica ABDEH Ferramenta para auxílio do projeto de EAS.pdf" rel="noopener noreferrer" target="_blank">Palestra Técnica ABDEH — Projetos de EAS (2h)</a></li>
+</ul>
+</details>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="expertise">
+<div class="shell">
+<div class="section-head reveal">
+<p class="section-kicker"><span>03</span> Expertise</p>
+<h2 class="section-title">Ferramentas como <span class="outline">linguagem</span></h2>
+</div>
+<div class="expertise-grid reveal">
+<article class="expertise-row">
+<div class="expertise-label"><span>01</span> Projeto &amp; BIM</div>
+<ul class="expertise-items">
+<li>Revit</li>
+<li>ArchiCAD</li>
+<li>AutoCAD</li>
+<li>Metodologia BIM</li>
+</ul>
+</article>
+<article class="expertise-row">
+<div class="expertise-label"><span>02</span> Visualização</div>
+<ul class="expertise-items">
+<li>Twinmotion</li>
+<li>D5 Render</li>
+<li>SketchUp</li>
+<li>Photoshop</li>
+</ul>
+</article>
+<article class="expertise-row">
+<div class="expertise-label"><span>03</span> Desenvolvimento</div>
+<ul class="expertise-items">
+<li>C#</li>
+<li>.NET 8</li>
+<li>Revit API</li>
+<li>HTML / CSS / JS</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section class="contact" id="contato">
+<div class="shell contact-inner reveal">
+<p class="contact-kicker">04 / Novas conexões</p>
+<h2 class="contact-title">Vamos criar o <span>próximo espaço?</span></h2>
+<div aria-label="Canais de contato" class="contact-links">
+<a href="mailto:caioaphonso@gmail.com">caioaphonso@gmail.com</a>
+<a href="tel:+5538999262019">+55 38 99926-2019</a>
+<a href="https://linkedin.com/in/caioaphonso" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell footer-inner">
+<p>Caio Aphonso Almeida</p>
+<p>Salvador — BA — Brasil</p>
+<p>© <span id="currentYear">2026</span> Todos os direitos reservados</p>
+</div>
+</footer>
+<script>
         (() => {
             "use strict";
 
