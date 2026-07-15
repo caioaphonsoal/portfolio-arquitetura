@@ -16,12 +16,78 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-red: #9f0d1d;
+            --accent-red-bright: #c3132f;
+            --portfolio-black: #0a0a0a;
+            --portfolio-white: #ffffff;
+        }
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0a0a0a; 
+            font-family: 'Space Grotesk', sans-serif; 
+            background-color: var(--portfolio-black); 
             color: #e4e4e7; 
+        }
+        h1, h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 600;
+        }
+        nav, button, .font-mono {
+            font-family: 'Space Mono', monospace;
+        }
+        ::selection {
+            background: var(--accent-red);
+            color: var(--portfolio-white);
+        }
+        nav {
+            border-bottom-color: rgba(159, 13, 29, 0.42) !important;
+        }
+        nav a:hover,
+        .slide-prev:hover,
+        .slide-next:hover {
+            color: var(--accent-red-bright) !important;
+            opacity: 1 !important;
+        }
+        section.border-t {
+            border-top-color: rgba(159, 13, 29, 0.24) !important;
+        }
+        .slide-counter,
+        .font-mono.text-zinc-400,
+        .font-mono.text-zinc-500,
+        .uppercase.text-zinc-500,
+        .uppercase.text-zinc-600 {
+            color: var(--accent-red-bright) !important;
+        }
+        .w-8.h-px {
+            background-color: var(--accent-red) !important;
+        }
+        a.inline-flex {
+            border-color: rgba(159, 13, 29, 0.78) !important;
+        }
+        a.inline-flex:hover {
+            background-color: var(--accent-red) !important;
+            border-color: var(--accent-red) !important;
+            color: var(--portfolio-white) !important;
+        }
+        #contato {
+            background-color: var(--accent-red) !important;
+            color: var(--portfolio-white) !important;
+        }
+        #contato, #contato * {
+            color: var(--portfolio-white) !important;
+        }
+        #contato h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--portfolio-black) !important;
+        }
+        #contato .border-black\/10 {
+            border-color: rgba(255, 255, 255, 0.32) !important;
+        }
+        #contato a:hover {
+            color: var(--portfolio-white) !important;
+            opacity: 0.72;
         }
         /* Utilitário para escurecer fundos de imagens para garantir leitura do texto */
         .overlay-dark {
@@ -645,7 +711,7 @@
     </section>
 
     <!-- SECÇÃO 04: CONTATO / FOOTER -->
-    <footer id="contato" class="py-24 px-6 md:px-12 bg-white text-black text-center md:text-left">
+    <footer id="contato" class="py-24 px-6 md:px-12 bg-[#9f0d1d] text-white text-center md:text-left">
         <div class="max-w-7xl mx-auto">
             <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-12">04 / Novas Conexões</div>
             
